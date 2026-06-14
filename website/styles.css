@@ -1,248 +1,479 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+:root {
+  --dark: #111827;
+  --darker: #030712;
+  --red: #dc2626;
+  --red-dark: #b91c1c;
+  --grey: #6b7280;
+  --light: #f3f4f6;
+  --white: #ffffff;
+  --border: #e5e7eb;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+}
 
-  <title>Newcastle Repair Centre | Garage Services in Newcastle</title>
-  <meta
-    name="description"
-    content="Newcastle Repair Centre provides professional vehicle servicing, MOT preparation, diagnostics, brakes, tyres and general repairs."
-  />
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
+html {
+  scroll-behavior: smooth;
+}
 
-<body>
-  <header class="site-header">
-    <div class="top-bar">
-      <p>Reliable vehicle repairs, servicing and diagnostics</p>
-      <a href="tel:01910000000">Call: 0191 000 0000</a>
-    </div>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
 
-    <nav class="navbar">
-      <a href="#" class="logo">
-        <span class="logo-mark">NRC</span>
-        <span>Newcastle Repair Centre</span>
-      </a>
+a {
+  color: inherit;
+}
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
-        ☰
-      </button>
+.site-header {
+  background: var(--darker);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
-      <div class="nav-links" id="navLinks">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#why-us">Why Choose Us</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 6%;
+  background: #020617;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Local garage in Newcastle</p>
-        <h1>Professional vehicle repairs you can trust</h1>
-        <p class="hero-text">
-          Newcastle Repair Centre provides dependable garage services for everyday drivers.
-          From servicing and diagnostics to brakes, tyres and repairs, we help keep your
-          vehicle safe and road-ready.
-        </p>
+.top-bar a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
 
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Request an Enquiry</a>
-          <a href="#services" class="btn btn-secondary">View Services</a>
-        </div>
-      </div>
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 6%;
+}
 
-      <div class="hero-card">
-        <h2>Garage Services</h2>
-        <ul>
-          <li>Vehicle servicing</li>
-          <li>Diagnostics</li>
-          <li>Brakes and suspension</li>
-          <li>Tyres and general repairs</li>
-        </ul>
-      </div>
-    </section>
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
 
-    <section class="section" id="services">
-      <div class="section-heading">
-        <p class="eyebrow">What we offer</p>
-        <h2>Our Services</h2>
-        <p>
-          We cover the key repair and maintenance work needed to keep your vehicle running
-          safely and reliably.
-        </p>
-      </div>
+.logo-mark {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
 
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-icon">🔧</div>
-          <h3>Vehicle Servicing</h3>
-          <p>
-            Routine servicing and maintenance checks to help prevent problems before they
-            become expensive repairs.
-          </p>
-        </article>
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 
-        <article class="service-card">
-          <div class="service-icon">💻</div>
-          <h3>Diagnostics</h3>
-          <p>
-            Fault finding and diagnostic checks for warning lights, engine issues and
-            performance problems.
-          </p>
-        </article>
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
 
-        <article class="service-card">
-          <div class="service-icon">🛞</div>
-          <h3>Tyres</h3>
-          <p>
-            Tyre checks, replacements and advice to help keep your vehicle safe on the road.
-          </p>
-        </article>
+.nav-links a:hover {
+  color: var(--white);
+}
 
-        <article class="service-card">
-          <div class="service-icon">🧰</div>
-          <h3>Brakes & Suspension</h3>
-          <p>
-            Brake inspections, repairs and suspension work to improve safety, comfort and control.
-          </p>
-        </article>
+.menu-toggle {
+  display: none;
+  background: none;
+  color: var(--white);
+  border: 0;
+  font-size: 2rem;
+  cursor: pointer;
+}
 
-        <article class="service-card">
-          <div class="service-icon">🚗</div>
-          <h3>MOT Preparation</h3>
-          <p>
-            Pre-MOT checks and repair work to help prepare your vehicle for its MOT.
-          </p>
-        </article>
+.hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  padding: 90px 6%;
+  color: var(--white);
+  background:
+    linear-gradient(120deg, rgba(3, 7, 18, 0.94), rgba(17, 24, 39, 0.82)),
+    radial-gradient(circle at top right, rgba(220, 38, 38, 0.45), transparent 35%);
+}
 
-        <article class="service-card">
-          <div class="service-icon">⚙️</div>
-          <h3>General Repairs</h3>
-          <p>
-            General mechanical repairs for common vehicle issues, wear and tear, and urgent faults.
-          </p>
-        </article>
-      </div>
-    </section>
+.hero-content {
+  max-width: 760px;
+}
 
-    <section class="split-section" id="about">
-      <div>
-        <p class="eyebrow">About us</p>
-        <h2>A local garage focused on honest, reliable work</h2>
-        <p>
-          Newcastle Repair Centre is built around straightforward advice, dependable repairs
-          and a customer-first approach. Whether you need a quick check, a full service or
-          repair work, our aim is to get you back on the road with confidence.
-        </p>
-        <p>
-          We work with everyday drivers, local customers and vehicle owners who want clear
-          communication and practical solutions without unnecessary confusion.
-        </p>
-      </div>
+.eyebrow {
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
 
-      <div class="about-panel">
-        <h3>Need your vehicle checked?</h3>
-        <p>
-          Contact us with your vehicle issue and we’ll get back to you with the next steps.
-        </p>
-        <a href="#contact" class="btn btn-primary">Get in Touch</a>
-      </div>
-    </section>
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  margin-bottom: 22px;
+}
 
-    <section class="section dark-section" id="why-us">
-      <div class="section-heading">
-        <p class="eyebrow">Why choose us</p>
-        <h2>Simple, reliable garage support</h2>
-      </div>
+.hero-text {
+  color: #d1d5db;
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin-bottom: 32px;
+}
 
-      <div class="why-grid">
-        <div class="why-item">
-          <h3>Clear Advice</h3>
-          <p>No confusing jargon. We explain what is wrong and what needs doing.</p>
-        </div>
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
 
-        <div class="why-item">
-          <h3>Local Service</h3>
-          <p>A Newcastle-based garage supporting local drivers and vehicle owners.</p>
-        </div>
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 22px;
+  text-decoration: none;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
 
-        <div class="why-item">
-          <h3>Practical Repairs</h3>
-          <p>Focused on safe, sensible repairs and dependable maintenance.</p>
-        </div>
-      </div>
-    </section>
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+}
 
-    <section class="section contact-section" id="contact">
-      <div class="section-heading">
-        <p class="eyebrow">Contact</p>
-        <h2>Request an enquiry</h2>
-        <p>
-          Send us your details and a short description of the issue. This temporary form will
-          open your email app with the message ready to send.
-        </p>
-      </div>
+.btn-primary:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
 
-      <div class="contact-layout">
-        <form class="contact-form" id="contactForm">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required />
+.btn-secondary {
+  background: var(--white);
+  color: var(--dark);
+}
 
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Your phone number" required />
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
 
-          <label for="vehicle">Vehicle Details</label>
-          <input type="text" id="vehicle" name="vehicle" placeholder="Example: Ford Focus 2017" />
+.hero-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: 34px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
 
-          <label for="message">What do you need help with?</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            placeholder="Describe the issue or service you need"
-            required
-          ></textarea>
+.hero-card h2 {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+}
 
-          <button type="submit" class="btn btn-primary">Send Enquiry</button>
-        </form>
+.hero-card ul {
+  list-style: none;
+}
 
-        <div class="contact-details">
-          <h3>Newcastle Repair Centre</h3>
+.hero-card li {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f9fafb;
+}
 
-          <p>
-            <strong>Phone:</strong><br />
-            <a href="tel:01910000000">0191 000 0000</a>
-          </p>
+.hero-card li::before {
+  content: "✓";
+  color: var(--red);
+  font-weight: bold;
+  margin-right: 10px;
+}
 
-          <p>
-            <strong>Email:</strong><br />
-            <a href="mailto:info@newcastlerepaircentre.co.uk">
-              info@newcastlerepaircentre.co.uk
-            </a>
-          </p>
+.section {
+  padding: 80px 6%;
+}
 
-          <p>
-            <strong>Address:</strong><br />
-            Newcastle upon Tyne
-          </p>
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
 
-          <p class="small-note">
-            Replace these details with the real phone number, email and address later.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
+.section-heading h2,
+.split-section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Newcastle Repair Centre. All rights reserved.</p>
-  </footer>
+.section-heading p {
+  color: var(--grey);
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: #fee2e2;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  color: var(--grey);
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 40px;
+  align-items: center;
+  padding: 80px 6%;
+  background: var(--white);
+}
+
+.split-section p {
+  color: var(--grey);
+  margin-bottom: 16px;
+}
+
+.about-panel {
+  background: var(--dark);
+  color: var(--white);
+  border-radius: 24px;
+  padding: 34px;
+  box-shadow: var(--shadow);
+}
+
+.about-panel h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.about-panel p {
+  color: #d1d5db;
+}
+
+.dark-section {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.dark-section .section-heading p {
+  color: #d1d5db;
+}
+
+.why-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.why-item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 28px;
+  border-radius: 20px;
+}
+
+.why-item h3 {
+  margin-bottom: 10px;
+}
+
+.why-item p {
+  color: #d1d5db;
+}
+
+.contact-section {
+  background: var(--light);
+}
+
+.contact-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+  gap: 28px;
+}
+
+.contact-form,
+.contact-details {
+  background: var(--white);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--border);
+}
+
+.contact-form {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-form label {
+  font-weight: 800;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 3px solid rgba(220, 38, 38, 0.18);
+  border-color: var(--red);
+}
+
+.contact-details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+}
+
+.contact-details p {
+  margin-bottom: 18px;
+  color: var(--grey);
+}
+
+.contact-details a {
+  color: var(--red);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.small-note {
+  font-size: 0.9rem;
+  background: #fef2f2;
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.site-footer {
+  background: var(--darker);
+  color: #d1d5db;
+  text-align: center;
+  padding: 24px 6%;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .split-section,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid,
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .top-bar {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 82px;
+    background: var(--darker);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 6%;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .services-grid,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section,
+  .split-section,
+  .hero {
+    padding: 60px 5%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
