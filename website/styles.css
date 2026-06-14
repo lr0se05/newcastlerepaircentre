@@ -59,30 +59,25 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 6%;
+  padding: 12px 6%;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   color: var(--white);
   text-decoration: none;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
 
-.logo-mark {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: var(--red);
-  color: var(--white);
-  font-size: 0.9rem;
-  letter-spacing: 0;
+.logo-image {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+  filter: invert(1);
 }
 
 .nav-links {

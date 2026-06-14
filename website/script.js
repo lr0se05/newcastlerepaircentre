@@ -25,7 +25,7 @@ contactForm.addEventListener("submit", (event) => {
     return;
   }
 
-  const email = "info@newcastlerepaircentre.co.uk";
+  const email = "thenrc@outlook.com";
   const subject = encodeURIComponent(`Website enquiry from ${name}`);
   const body = encodeURIComponent(
     `Name: ${name}\nPhone: ${phone}\nVehicle: ${vehicle || "Not provided"}\n\nMessage:\n${message}`
