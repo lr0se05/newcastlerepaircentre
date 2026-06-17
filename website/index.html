@@ -192,47 +192,59 @@
       </div>
 
       <div class="contact-layout">
-        <form class="contact-form" id="contactForm">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required />
+      <form
+        class="contact-form"
+        id="contactForm"
+        action="https://api.staticforms.dev/submit"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="apiKey" value="sf_776638eeffe51a240fe1d901" />
+        <input type="hidden" name="subject" value="Newcastle Repair Centre website enquiry" />
 
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Your phone number" required />
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
 
-          <label for="vehicle">Vehicle Details</label>
-          <input type="text" id="vehicle" name="vehicle" placeholder="Example: Ford Focus 2017" />
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your email address" required />
 
-          <label for="message">What do you need help with?</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            placeholder="Describe the issue or service you need"
-            required
-          ></textarea>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone number" required />
 
-          <label for="images">Upload photos of the damage</label>
-          <input
-            type="file"
-            id="images"
-            name="images"
-            accept="image/*"
-            multiple
-          />
+        <label for="vehicle">Vehicle Details</label>
+        <input
+          type="text"
+          id="vehicle"
+          name="vehicle"
+          placeholder="Example: Citroen DS3 2014"
+        />
 
-          <p class="small-note">
-            You can upload up to 5 images of the damaged area.
-          </p>
+        <label for="message">What bodywork repair do you need?</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Example: dent on rear door, scratched bumper, accident damage, paint repair"
+          required
+        ></textarea>
 
-          <label class="hidden-field" for="company">
-            Company
-            <input type="text" id="company" name="company" autocomplete="off" />
-          </label>
+        <label for="images">Upload photos of the damage</label>
+        <input
+          type="file"
+          id="images"
+          name="attachments"
+          accept="image/*"
+          multiple
+        />
 
-          <p id="formStatus" class="form-status" aria-live="polite"></p>
+        <p class="small-note">
+          You can upload up to 5 images of the damaged area.
+        </p>
 
-          <button type="submit" class="btn btn-primary">Send Enquiry</button>
-        </form>
+        <p id="formStatus" class="form-status" aria-live="polite"></p>
+
+        <button type="submit" class="btn btn-primary">Send Enquiry</button>
+      </form>
 
         <div class="contact-details">
           <h3>Newcastle Repair Centre</h3>
