@@ -1,35 +1,65 @@
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
 
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});
-
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
   });
-});
 
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+}
 
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const vehicle = document.getElementById("vehicle").value.trim();
-  const message = document.getElementById("message").value.trim();
+if (contactForm) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  if (!name || !phone || !message) {
-    alert("Please fill in your name, phone number and message.");
-    return;
-  }
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const vehicle = document.getElementById("vehicle").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const company = document.getElementById("company").value.trim();
 
-  const email = "thenrc@outlook.com";
-  const subject = encodeURIComponent(`Website enquiry from ${name}`);
-  const body = encodeURIComponent(
-    `Name: ${name}\nPhone: ${phone}\nVehicle: ${vehicle || "Not provided"}\n\nMessage:\n${message}`
-  );
+    formStatus.className = "form-status";
+    formStatus.textContent = "";
 
-  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-});
+    if (!name || !phone || !message) {
+      formStatus.classList.add("error");
+      formStatus.textContent = "Please fill in your name, phone number and message.";
+      return;
+    }
+
+    try {
+      const response = await fetch("http://192.168.1.230:8011/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          vehicle,
+          message,
+          company,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      formStatus.classList.add("success");
+      formStatus.textContent = "Thank you. Your enquiry has been sent.";
+
+      contactForm.reset();
+    } catch (error) {
+      formStatus.classList.add("error");
+      formStatus.textContent = "Sorry, something went wrong. Please try again later.";
+    }
+  });
+}

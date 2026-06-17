@@ -59,10 +59,10 @@
       <div class="hero-card">
         <h2>Garage Services</h2>
         <ul>
-          <li>Vehicle servicing</li>
-          <li>Diagnostics</li>
-          <li>Brakes and suspension</li>
-          <li>Tyres and general repairs</li>
+          <li>Body Work</li>
+          <li>Car Painting</li>
+          <li>Crash Damages</li>
+          <li>Dents & Scratches</li>
         </ul>
       </div>
     </section>
@@ -72,8 +72,8 @@
         <p class="eyebrow">What we offer</p>
         <h2>Our Services</h2>
         <p>
-          We cover the key repair and maintenance work needed to keep your vehicle running
-          safely and reliably.
+          We provide local and trustworthy work to make your car look exactly how you want it!
+          No hidden fuss, just your car looking its best at the end of it!
         </p>
       </div>
 
@@ -130,18 +130,23 @@
 
     <section class="split-section" id="about">
       <div>
+
         <p class="eyebrow">About us</p>
-        <h2>A local garage focused on honest, reliable work</h2>
+
+        <h2>A local bodyshop focused on quality repairs and a clean finish</h2>
+
         <p>
-          Newcastle Repair Centre is built around straightforward advice, dependable repairs
-          and a customer-first approach. Whether you need a quick check, a full service or
-          repair work, our aim is to get you back on the road with confidence.
+          Newcastle Repair Centre specialises in professional car bodywork, accident damage repairs,
+          paintwork and cosmetic vehicle repairs. From dents and scratches to bumper damage,
+          panel repairs and resprays, our aim is to restore your vehicle properly and get it
+          looking its best again.
         </p>
+
         <p>
           We work with everyday drivers, local customers and vehicle owners who want clear
-          communication and practical solutions without unnecessary confusion.
+          communication, honest advice and high-quality body repair work without unnecessary
+          confusion.
         </p>
-      </div>
 
       <div class="about-panel">
         <h3>Need your vehicle checked?</h3>
@@ -205,6 +210,13 @@
             placeholder="Describe the issue or service you need"
             required
           ></textarea>
+
+          <label class="hidden-field" for="company">
+            Company
+            <input type="text" id="company" name="company" autocomplete="off" />
+          </label>
+
+          <p id="formStatus" class="form-status" aria-live="polite"></p>
 
           <button type="submit" class="btn btn-primary">Send Enquiry</button>
         </form>

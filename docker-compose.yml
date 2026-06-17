@@ -7,3 +7,12 @@ services:
     volumes:
       - ./website:/usr/share/nginx/html:ro
     restart: unless-stopped
+
+  newcastlerepaircentre-api:
+    build: ./api
+    container_name: newcastlerepaircentre-api
+    ports:
+      - "8011:8000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
