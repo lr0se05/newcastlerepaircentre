@@ -77,7 +77,7 @@ a {
   height: 72px;
   object-fit: contain;
   display: block;
-  filter: invert(1);
+  filter: none;
 }
 
 .nav-links {
