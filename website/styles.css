@@ -489,3 +489,13 @@ a {
 .form-status.error {
   color: #b91c1c;
 }
+
+.contact-form input[type="file"] {
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

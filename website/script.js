@@ -19,38 +19,32 @@ if (contactForm) {
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const vehicle = document.getElementById("vehicle").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const company = document.getElementById("company").value.trim();
+    const submitButton = contactForm.querySelector("button[type='submit']");
+    const formData = new FormData(contactForm);
+    const images = document.getElementById("images").files;
 
     formStatus.className = "form-status";
     formStatus.textContent = "";
 
-    if (!name || !phone || !message) {
+    if (images.length > 5) {
       formStatus.classList.add("error");
-      formStatus.textContent = "Please fill in your name, phone number and message.";
+      formStatus.textContent = "Please upload no more than 5 images.";
       return;
     }
 
     try {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
       const response = await fetch("http://192.168.1.230:8011/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          phone,
-          vehicle,
-          message,
-          company,
-        }),
+        body: formData,
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error("Form submission failed");
+        throw new Error(result.detail || "Form submission failed");
       }
 
       formStatus.classList.add("success");
@@ -59,7 +53,11 @@ if (contactForm) {
       contactForm.reset();
     } catch (error) {
       formStatus.classList.add("error");
-      formStatus.textContent = "Sorry, something went wrong. Please try again later.";
+      formStatus.textContent =
+        error.message || "Sorry, something went wrong. Please try again later.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send Enquiry";
     }
   });
 }

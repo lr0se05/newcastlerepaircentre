@@ -13,6 +13,6 @@ services:
     container_name: newcastlerepaircentre-api
     ports:
       - "8011:8000"
-    volumes:
-      - ./data:/app/data
+    env_file:
+      - .env
     restart: unless-stopped
